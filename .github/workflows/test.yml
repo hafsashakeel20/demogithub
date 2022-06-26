@@ -56,4 +56,3 @@ jobs:
       - name: tf-plan
         id: plan
         run: terraform plan -no-color
-
