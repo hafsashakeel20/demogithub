@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [ "master" ]
-  #pull_request:
-  #  branches: [ "main" ]
 env:
   BUCKET: hafsa-bucket-1
   TFSTATE_FILE: hafsa.tfstate
