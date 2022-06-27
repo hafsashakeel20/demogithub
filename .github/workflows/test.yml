@@ -6,28 +6,12 @@ on:
     branches: [ "master" ]
   #pull_request:
   #  branches: [ "main" ]
-# env:
-#   file_name: demo.py  
-#   name_id: hafsashakeel20
-#   value: ${{ secrets.SECRET_VALUE }}
+env:
+  BUCKET: hafsa-bucket-1
+  TFSTATE_FILE: hafsa.tfstate
+  DB_TABLE: hafsa-table-1
 
 jobs:
-  test-job:
-    runs-on: ubuntu-latest
-    # needs: env-var-job
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Needs check
-        run: echo Hi! im running within github with ubuntu
-
-      # Runs a set of commands using the runners shell
-      # - name: Run a multi-line script
-      #   run: |
-      #     echo Add other actions to build,
-      #     echo test, and deploy your project!!
-
   tf-run:
     runs-on: ubuntu-latest
 
@@ -51,8 +35,15 @@ jobs:
         id: init
         run: 
           #cd ./scripts/Test_Module
-          terraform init
+          terraform init -reconfigure
+          -backend-config="bucket=$BUCKET"
+          -backend-config="key=$TFSTATE_FILE"
+          -backend-config="dynamodb_table=$DB_TABLE"
 
       - name: tf-plan
         id: plan
         run: terraform plan -no-color
+
+      # - name: tf-apply
+      #   id: apply
+      #   run: terraform apply -auto-approve -input=false
