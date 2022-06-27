@@ -4,7 +4,7 @@ my_instance = {
         "inst_type" = "t2.micro"
         "subnet_id" ="subnet-0a42bfd16f2dde187"
         "inst_tags" = {
-            "name" = "hafsa-linux-instance1"
+            "Name" = "hafsa-linux-instance1"
             "owner" = "hafsa"
             "Purpose" = "Asst-practice"
         }
@@ -17,7 +17,7 @@ my_instance = {
         "inst_type" = "t2.micro"
         "subnet_id"="subnet-0a42bfd16f2dde187"
         "inst_tags" = {
-            "name" = "hafsa-ubuntu-instance1"
+            "Name" = "hafsa-ubuntu-instance1"
             "owner" = "hafsa"
             "Purpose" = "Asst-practice"
         }
